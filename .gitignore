@@ -12,6 +12,15 @@
 *.vsix
 
 /.env
-/dist/.env
+/src/.env
 /TODO
 /test.bash
+
+
+**/local/*
+!**/local/README.md
+!**/.gitkeep
+
+**/*.local
+**/*.local.*
+!**/.local/
