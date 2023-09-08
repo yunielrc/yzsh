@@ -1,0 +1,7 @@
+directories:
+  tests: src/test/zunit
+  output: src/test/zunit/_output
+  support: src/test/zunit/_support
+time_limit: 0
+fail_fast: true
+allow_risky: false

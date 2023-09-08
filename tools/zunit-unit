@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2046
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.." &&
+  tools/zunit $(fd --full-path 'src/test/\S+[^.if]\.zunit$')

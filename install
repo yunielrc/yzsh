@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+#
+# Installs yzsh on DESTDIR
+#
+
+set -eu
+
+# ENV VARS
+readonly _DEFAULT_DIR=~
+readonly DESTDIR="${DESTDIR:-"$_DEFAULT_DIR"}"
+
+ln -s "$(realpath src/home/yzsh)" "${DESTDIR}/.yzsh"
+
+if [ ! -f ~/.zshrc ] || ! grep -q '.yzsh/init.zsh' ~/.zshrc; then
+
+  cat <<'EOF' >>~/.zshrc
+
+if [[ -d ~/.yzsh ]]; then
+  source ~/.yzsh/init.zsh && yzsh_main
+fi
+
+EOF
+
+fi

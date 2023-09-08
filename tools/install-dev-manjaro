@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# Install manjaro dev packages
+#
+
+set -eu
+# shellcheck source=../packages.env
+. ./packages.env
+
+sudo pacman -Syu --noconfirm --needed yay
+
+yay -Sy --noconfirm --needed "${PKG_DEV_MANJARO_YAY[@]}"
+
+sudo -H npm install -g "${PKG_DEV_MANJARO_NPM[@]}"
+
+# INSTALL ZUNIT
+# Install revolver
+sudo curl -L https://raw.githubusercontent.com/molovo/revolver/master/revolver \
+  -o /usr/local/bin/revolver
+# Install ZUnit into $path
+sudo curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit \
+  -o /usr/local/bin/zunit
+# Install ZUnit ZSH completion into $fpath
+# shellcheck disable=SC2154
+[[ ! -d /usr/local/share/zsh/site-functions/ ]] &&
+  sudo mkdir -p /usr/local/share/zsh/site-functions/
+sudo curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit.zsh-completion \
+  -o /usr/local/share/zsh/site-functions/_zunit
+
+sudo chmod +x /usr/local/bin/revolver /usr/local/bin/zunit
+
+# Configure
+git config core.hooksPath .githooks

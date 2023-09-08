@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+_DIR="$(realpath "${0:a:h}/../../..")"
+YZSH_BASE_PATH="${_DIR}/test/fixtures/yzsh"
+. "${_DIR}/home/yzsh/init.zsh"
