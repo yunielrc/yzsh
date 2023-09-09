@@ -12,6 +12,12 @@ aliases and environment variables.
 
 ## Installing
 
+If you have your .yzsh data, clone your .yzsh data repository
+
+```sh
+git clone https://github.com/<your_user>/<repo_name> ~/.yzsh
+```
+
 Clone the repository
 
 ```sh
@@ -33,3 +39,7 @@ vim ~/.yzsh.env
 ```
 
 Add `plugins` and `themes` in `~/.yzsh`
+
+## Usage
+
+Open your terminal and enjoy it.
