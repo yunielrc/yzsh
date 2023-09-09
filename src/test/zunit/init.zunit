@@ -9,52 +9,52 @@
   assert $state equals 1
 }
 
-# Tests for  yzsh_load_plugin
+# Tests for  __yzsh_load_plugin
 
-@test 'yzsh_load_plugin: with plugin empty should return 1' {
-  run yzsh_load_plugin ''
+@test '__yzsh_load_plugin: with plugin empty should return 1' {
+  run __yzsh_load_plugin ''
 
   assert "$output" same_as 'ERROR> plugin name empty'
   assert $state equals 1
 }
 
-@test 'yzsh_load_plugin: should load plugin 3rd/example0' {
-  run yzsh_load_plugin 'example0'
+@test '__yzsh_load_plugin: should load plugin 3rd/example0' {
+  run __yzsh_load_plugin 'example0'
 
   assert "$output" matches "DEBUG> plugin example0 loaded from '.*/plugins/3rd/example0.plugin.zsh"
   assert $state equals 0
 }
 
-@test 'yzsh_load_plugin: should load plugin 3rd/example2/example2' {
-  run yzsh_load_plugin 'example2'
+@test '__yzsh_load_plugin: should load plugin 3rd/example2/example2' {
+  run __yzsh_load_plugin 'example2'
 
   assert "$output" matches "DEBUG> plugin example2 loaded from '.*plugins/3rd/example2/example2.plugin.zsh"
   assert $state equals 0
 }
 
-@test 'yzsh_load_plugin: should not load plugin 3rd/example100/example100' {
-  run yzsh_load_plugin 'example100'
+@test '__yzsh_load_plugin: should not load plugin 3rd/example100/example100' {
+  run __yzsh_load_plugin 'example100'
 
   assert "$output" same_as "ERROR> plugin example100 can't be loaded"
   assert $state equals 1
 }
 
-@test 'yzsh_load_plugin: should load plugin local/example3/example3' {
-  run yzsh_load_plugin 'example3'
+@test '__yzsh_load_plugin: should load plugin local/example3/example3' {
+  run __yzsh_load_plugin 'example3'
 
   assert "$output" matches "DEBUG> plugin example3 loaded from '.*/plugins/local/example3/example3.plugin.zsh"
   assert $state equals 0
 }
 
-@test 'yzsh_load_plugin: should load plugin local/example4/example4' {
-  run yzsh_load_plugin 'example4'
+@test '__yzsh_load_plugin: should load plugin local/example4/example4' {
+  run __yzsh_load_plugin 'example4'
 
   assert "$output" matches "DEBUG> plugin example4 loaded from '.*/plugins/local/example4.plugin.zsh"
   assert $state equals 0
 }
 
-@test 'yzsh_load_plugin: should load plugin user/example5' {
-  run yzsh_load_plugin 'example5'
+@test '__yzsh_load_plugin: should load plugin user/example5' {
+  run __yzsh_load_plugin 'example5'
 
   assert "$output" matches "DEBUG> plugin example5 loaded from '.*/plugins/user/example5.plugin.zsh"
   assert $state equals 0

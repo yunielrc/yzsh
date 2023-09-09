@@ -1,0 +1,6 @@
+**/local/*
+!**/local/README.md
+!**/.gitkeep
+
+**/*.local
+**/*.local.*

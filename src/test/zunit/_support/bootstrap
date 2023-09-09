@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
 _DIR="$(realpath "${0:a:h}/../../..")"
-YZSH_BASE_PATH="${_DIR}/test/fixtures/yzsh"
-. "${_DIR}/home/yzsh/init.zsh"
+E_YZSH_DATA_DIR="${_DIR}/test/fixtures/home/.yzsh"
+. "${_DIR}/home/.yzsh-load.zsh"

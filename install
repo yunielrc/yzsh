@@ -1,25 +1,38 @@
 #!/usr/bin/env sh
 
 #
-# Installs yzsh on DESTDIR
+# Installs yzsh on home
 #
 
 set -eu
 
-# ENV VARS
-readonly _DEFAULT_DIR=~
-readonly DESTDIR="${DESTDIR:-"$_DEFAULT_DIR"}"
+install -vm644 src/home/.yzsh-load.zsh ~/
 
-ln -s "$(realpath src/home/yzsh)" "${DESTDIR}/.yzsh"
+if [ ! -f ~/.yzsh.env ]; then
+  cp -v src/etc/skel/.yzsh.env ~/.yzsh.env
+fi
 
-if [ ! -f ~/.zshrc ] || ! grep -q '.yzsh/init.zsh' ~/.zshrc; then
+if [ ! -d ~/.yzsh ]; then
+  echo
+  echo 'There is no ~/.yzsh data directory, copying from skel'
 
+  cp -vr src/etc/skel/.yzsh ~/
+
+  echo
+  echo "Copied .yzsh data from skel. It's recomended to create a git repository of ~/.yzsh to save it"
+fi
+
+if [ ! -f ~/.zshrc ] || ! grep -q '/.yzsh-load.zsh' ~/.zshrc; then
   cat <<'EOF' >>~/.zshrc
 
-if [[ -d ~/.yzsh ]]; then
-  source ~/.yzsh/init.zsh && yzsh_main
+if [[ -f ~/.yzsh-load.zsh && -d ~/.yzsh ]]; then
+  source ~/.yzsh-load.zsh && yzsh_main
 fi
-
 EOF
 
+  echo
+  echo 'Added yzsh loader to ~/.zshrc'
 fi
+
+echo
+echo 'DONE'
