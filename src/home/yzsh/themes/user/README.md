@@ -1,3 +1,3 @@
 # README
 
-Plugins created by the user
+Themes created by the user

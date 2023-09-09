@@ -1,3 +1,3 @@
 # shellcheck disable=all
-YZSH_THEME=manjaro-zsh-prompt
+# YZSH_THEME=<your-theme>
 YZSH_PLUGINS=(edit-command-line)

@@ -2,38 +2,32 @@
 
 ## About
 
-My ZSH framework
-
-<!-- ## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+YZSH is a very simple ZSH framework for managing plugins, themes, functions,
+aliases and environment variables.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
+- git
+- zsh
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+Create a directory for cloning the tool
 
-Say what the step will be
-
-```
-Give the example
+```sh
+mkdir -p ~/.var/opt && cd ~/.var/opt
 ```
 
-And repeat
+Clone the repository
 
+```sh
+git clone https://gitlab.com/yunielrc/yzsh && cd yzsh
 ```
-until finished
+
+Install
+
+```sh
+make install
 ```
 
 End with an example of getting some data out of the system or using it for a little demo.
-
-## Usage
-
-Add notes about how to use the system. -->
