@@ -5,12 +5,12 @@
 YZSH is a very simple ZSH framework for managing plugins, themes, functions,
 aliases and environment variables.
 
-### Prerequisites
+## Prerequisites
 
 - git
 - zsh
 
-### Installing
+## Installing
 
 Create a directory for cloning the tool
 
@@ -29,3 +29,13 @@ Install
 ```sh
 make install
 ```
+
+## Configure
+
+Edit the configuration file to choice your theme and plugins
+
+```sh
+vim ~/.yzsh.env
+```
+
+Add `plugins` and `themes` in `~/.yzsh`
