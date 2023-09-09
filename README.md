@@ -21,7 +21,7 @@ git clone https://github.com/<your_user>/<repo_name> ~/.yzsh
 Clone the repository
 
 ```sh
-git clone https://gitlab.com/yunielrc/yzsh && cd yzsh
+git clone https://gitlab.com/yunielrc/yzsh.git && cd yzsh
 ```
 
 Install
@@ -32,13 +32,13 @@ make install
 
 ## Configure
 
+Add `plugins` and `themes` in `~/.yzsh`
+
 Edit the configuration file to choice your theme and plugins
 
 ```sh
 vim ~/.yzsh.env
 ```
-
-Add `plugins` and `themes` in `~/.yzsh`
 
 ## Usage
 
