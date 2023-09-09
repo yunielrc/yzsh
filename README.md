@@ -12,12 +12,6 @@ aliases and environment variables.
 
 ## Installing
 
-Create a directory for cloning the tool
-
-```sh
-mkdir -p ~/.var/opt && cd ~/.var/opt
-```
-
 Clone the repository
 
 ```sh

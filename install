@@ -8,10 +8,6 @@ set -eu
 
 install -vm644 src/home/.yzsh-load.zsh ~/
 
-if [ ! -f ~/.yzsh.env ]; then
-  cp -v src/etc/skel/.yzsh.env ~/.yzsh.env
-fi
-
 if [ ! -d ~/.yzsh ]; then
   echo
   echo 'There is no ~/.yzsh data directory, copying from skel'
@@ -20,6 +16,10 @@ if [ ! -d ~/.yzsh ]; then
 
   echo
   echo "Copied .yzsh data from skel. It's recomended to create a git repository of ~/.yzsh to save it"
+fi
+
+if [ ! -f ~/.yzsh.env ]; then
+  ln -vs ~/.yzsh/.yzsh.env ~/.yzsh.env
 fi
 
 if [ ! -f ~/.zshrc ] || ! grep -q '/.yzsh-load.zsh' ~/.zshrc; then
