@@ -2,7 +2,7 @@
 
 ## About
 
-YZSH is a very simple ZSH framework for managing plugins, themes, functions,
+A simple ZSH framework for managing plugins, themes, functions,
 aliases and environment variables.
 
 ## Prerequisites
@@ -21,7 +21,7 @@ git clone https://github.com/<your_user>/<repo_name> ~/.yzsh
 Clone the repository
 
 ```sh
-git clone https://gitlab.com/yunielrc/yzsh.git && cd yzsh
+git clone https://github.com/yunielrc/yzsh.git && cd yzsh
 ```
 
 Install
