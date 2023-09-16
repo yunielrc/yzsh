@@ -10,6 +10,8 @@ fi
 
 if [[ "$PWD" != "$HOME" && -f .yzsh.env ]]; then source .yzsh.env; fi
 
+if [[ -f ~/.yzsh-gen.env ]]; then source ~/.yzsh-gen.env; fi
+
 # LOAD ENVIRONMENT & CONFIG VARIABLES on CONSTANTS
 # environment variables has priority over config variables
 # scheme:  __VAR="${ENV_VAR:-"${CONFIG_VAR:-default}"}"
@@ -18,10 +20,6 @@ YZSH_GIT_REPOS_DIR="${E_YZSH_GIT_REPOS_DIR:-"${YZSH_GIT_REPOS_DIR:-"${__YZSH_CAC
 __YZSH_DATA_DIR="${E_YZSH_DATA_DIR:-"${YZSH_DATA_DIR:-"${0:a:h}/.yzsh"}"}"
 __YZSH_THEME="${E_YZSH_THEME:-$YZSH_THEME}"
 __YZSH_PLUGINS=(${E_YZSH_PLUGINS:-${YZSH_PLUGINS[@]}})
-
-# CONSTANTS (ENV VAR DEPENDANT)
-__YZSH_GEN_DIR="${__YZSH_DATA_DIR}/gen"
-__YZSH_LOAD_LOCAL_FILE="${__YZSH_GEN_DIR}/load.local.generated.zsh"
 
 # CREATE DIRECTORIES
 if [[ ! -d "$YZSH_GIT_REPOS_DIR" ]]; then
@@ -109,11 +107,6 @@ yzsh_main() {
   fpath+=("${__YZSH_DATA_DIR}/functions")
   # shellcheck disable=SC2046
   autoload -Uz "${__YZSH_DATA_DIR}/functions/"*(:t)
-
-  # load plugins from generated file
-  if [[ -f "$__YZSH_LOAD_LOCAL_FILE" ]]; then
-    source "$__YZSH_LOAD_LOCAL_FILE"
-  fi
 
   # load plugins from `__YZSH_PLUGINS` variable
   if [[ "${#__YZSH_PLUGINS[@]}" -ne 0 ]]; then
