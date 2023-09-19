@@ -19,7 +19,7 @@ if [ ! -d ~/.yzsh ]; then
 fi
 
 if [ ! -f ~/.yzsh.env ]; then
-  ln -vs ~/.yzsh/.yzsh.env ~/.yzsh.env
+  ln -vs ~/.yzsh/yzsh.env ~/.yzsh.env
 fi
 
 if [ ! -f ~/.zshrc ] || ! grep -q '/.yzsh-load.zsh' ~/.zshrc; then
