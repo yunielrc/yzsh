@@ -34,7 +34,7 @@ make install
 
 Add `plugins` and `themes` in `~/.yzsh`
 
-Edit the configuration file to choice your theme and plugins
+Edit the configuration file to choose your theme and plugins
 
 ```sh
 vim ~/.yzsh.env
